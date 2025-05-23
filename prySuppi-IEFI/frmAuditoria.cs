@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace prySuppi_IEFI
 {
-    public partial class frmLogin : Form
+    public partial class frmAuditoria : Form
     {
-        public frmLogin()
+        public frmAuditoria()
         {
             InitializeComponent();
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-            frmPrincipal frmPrincipal = new frmPrincipal();
-            frmPrincipal.Show();
         }
     }
 }
