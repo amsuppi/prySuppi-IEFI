@@ -12,6 +12,7 @@ namespace prySuppi_IEFI
 {
     public partial class frmLogin : Form
     {
+        clsUsuario clsUsuario;
         public frmLogin()
         {
             InitializeComponent();
@@ -22,6 +23,16 @@ namespace prySuppi_IEFI
 
             frmPrincipal frmPrincipal = new frmPrincipal();
             frmPrincipal.Show();
+            clsUsuario = new clsUsuario();
+            
+            lblPass.Text = clsUsuario.estadoConexion;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            clsUsuario = new clsUsuario();
+            clsUsuario.AgregarUsuario(txtUser.Text, txtPass.Text);
+            lblPass.Text = clsUsuario.estadoConexion;
         }
     }
 }
