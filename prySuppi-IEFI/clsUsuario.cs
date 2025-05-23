@@ -43,7 +43,45 @@ namespace prySuppi_IEFI
 
            
         }
-        public void AgregarUsuario(string name, string pass)
+
+        public void InsertarAuditoria(string name)
+        {
+            try
+            {
+                comandoBD = new OleDbCommand();
+
+                comandoBD.Connection = conexionBD;
+                comandoBD.CommandType = System.Data.CommandType.TableDirect;
+                comandoBD.CommandText = "Auditoria";
+
+                OleDbDataAdapter adaptadorBD = new OleDbDataAdapter(comandoBD);
+                OleDbCommandBuilder builder = new OleDbCommandBuilder(adaptadorBD);
+
+                DataSet objDS = new DataSet();
+                adaptadorBD.Fill(objDS, "Auditoria");
+
+                DataTable objTabla = objDS.Tables["Auditoria"];
+                DataRow nuevoRegistro = objTabla.NewRow();
+
+                nuevoRegistro["UserId"] = name;
+                nuevoRegistro["Fecha"] = DateTime.Now;
+                nuevoRegistro["Tiempo de uso"] = 10000;
+
+                objTabla.Rows.Add(nuevoRegistro);
+
+                OleDbCommandBuilder cb = new OleDbCommandBuilder(adaptadorBD);
+
+                adaptadorBD.Update(objDS, "Auditoria");
+
+                estadoConexion = "Exito";
+
+            }
+            catch (Exception error)
+            {
+                estadoConexion = error.Message;
+            }
+        }
+        public void ValidarUsuario(string name, string pass)
         {
             try
             {
@@ -61,7 +99,7 @@ namespace prySuppi_IEFI
                     {
                         if (lectorBD[1].ToString() == name && lectorBD[2].ToString() == pass)
                         {
-                            estadoConexion = "Usuario EXISTE";
+                            InsertarAuditoria(name);
                         }
                     }
                 }

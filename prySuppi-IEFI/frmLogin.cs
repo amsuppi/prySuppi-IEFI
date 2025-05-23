@@ -31,7 +31,7 @@ namespace prySuppi_IEFI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             clsUsuario = new clsUsuario();
-            clsUsuario.AgregarUsuario(txtUser.Text, txtPass.Text);
+            clsUsuario.ValidarUsuario(txtUser.Text, txtPass.Text);
             lblPass.Text = clsUsuario.estadoConexion;
         }
     }
