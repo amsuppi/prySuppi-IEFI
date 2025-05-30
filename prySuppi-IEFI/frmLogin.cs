@@ -20,19 +20,31 @@ namespace prySuppi_IEFI
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
-            frmPrincipal frmPrincipal = new frmPrincipal();
-            frmPrincipal.Show();
-            clsUsuario = new clsUsuario();
             
+            clsUsuario = new clsUsuario();
             lblPass.Text = clsUsuario.estadoConexion;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsUsuario = new clsUsuario();
-            clsUsuario.ValidarUsuario(txtUser.Text, txtPass.Text);
-            lblPass.Text = clsUsuario.estadoConexion;
+            if (clsUsuario.ValidarUsuario(txtUser.Text, txtPass.Text))
+            {
+                frmPrincipal frmPrincipal = new frmPrincipal(txtUser.Text);
+                frmPrincipal.Show();
+
+                clsUsuario = new clsUsuario();
+                clsUsuario.ConteoDeTiempo();
+                lblPass.Text = clsUsuario.estadoConexion;
+            } else
+            {
+                MessageBox.Show("Error: Alguno de los datos son incorrectos");
+            }
+            
+        }
+
+        private void frmLogin_FormClosedFormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

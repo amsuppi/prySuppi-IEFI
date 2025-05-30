@@ -35,10 +35,10 @@
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sstItems = new System.Windows.Forms.StatusStrip();
             this.tssUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblFechaInfo = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.tssFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.sstItems.SuspendLayout();
             this.SuspendLayout();
@@ -59,8 +59,7 @@
             this.tsmTareas.Name = "tsmTareas";
             this.tsmTareas.Size = new System.Drawing.Size(51, 20);
             this.tsmTareas.Text = "Tareas";
-            this.tsmTareas.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
+          
             // administracionToolStripMenuItem
             // 
             this.administracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -73,13 +72,13 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // auditoriaToolStripMenuItem
             // 
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
-            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             // 
             // sstItems
@@ -93,7 +92,6 @@
             this.sstItems.Size = new System.Drawing.Size(353, 22);
             this.sstItems.TabIndex = 1;
             this.sstItems.Text = "statusStrip1";
-            this.sstItems.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // tssUser
             // 
@@ -101,6 +99,14 @@
             this.tssUser.Size = new System.Drawing.Size(33, 17);
             this.tssUser.Text = "User:";
             this.tssUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tssFecha
+            // 
+            this.tssFecha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tssFecha.Name = "tssFecha";
+            this.tssFecha.Size = new System.Drawing.Size(41, 17);
+            this.tssFecha.Text = "Fecha:";
+            this.tssFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblFecha
             // 
@@ -110,7 +116,6 @@
             this.lblFecha.Size = new System.Drawing.Size(40, 13);
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "Fecha:";
-            this.lblFecha.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblFechaInfo
             // 
@@ -130,14 +135,6 @@
             this.lblUser.TabIndex = 4;
             this.lblUser.Text = "label1";
             // 
-            // tssFecha
-            // 
-            this.tssFecha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tssFecha.Name = "tssFecha";
-            this.tssFecha.Size = new System.Drawing.Size(41, 17);
-            this.tssFecha.Text = "Fecha:";
-            this.tssFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +149,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.Text = "Principal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.sstItems.ResumeLayout(false);

@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections;
+using System.Windows.Forms;
+using System.Diagnostics;
+
 
 namespace prySuppi_IEFI
 {
@@ -15,21 +19,22 @@ namespace prySuppi_IEFI
         OleDbCommand comandoBD;
         OleDbDataReader lectorBD;
 
-        OleDbDataAdapter adaptadorBD;
         DataSet objDS;
 
-        string rutaArchivo;
+        string rutaArchivo= @"../../UsuarioDatabase/Usuarios.accdb";
         public string estadoConexion;
 
+        private Stopwatch cronometro = new Stopwatch();
+
+        string connectionString;
 
         public clsUsuario()
         {
             try
             {
-                rutaArchivo = @"../../UsuarioDatabase/Usuarios.accdb";
-
+                connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + rutaArchivo;
                 conexionBD = new OleDbConnection();
-                conexionBD.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + rutaArchivo;
+                conexionBD.ConnectionString = connectionString;
                 conexionBD.Open();
 
                 objDS = new DataSet();
@@ -44,45 +49,45 @@ namespace prySuppi_IEFI
            
         }
 
+        public void ConteoDeTiempo()
+        {
+            cronometro.Restart();
+        }
+
         public void InsertarAuditoria(string name)
         {
-            try
+
+            using (OleDbConnection conexion = new OleDbConnection(connectionString))
             {
-                comandoBD = new OleDbCommand();
+                try
+                {
+                    conexion.Open();
 
-                comandoBD.Connection = conexionBD;
-                comandoBD.CommandType = System.Data.CommandType.TableDirect;
-                comandoBD.CommandText = "Auditoria";
+                    string query = "INSERT INTO Auditoria (User_id, Fecha, Tiempo_de_uso) VALUES (?, ?, ?)";
 
-                OleDbDataAdapter adaptadorBD = new OleDbDataAdapter(comandoBD);
-                OleDbCommandBuilder builder = new OleDbCommandBuilder(adaptadorBD);
+                    cronometro.Stop();
+                    TimeSpan tiempoTranscurrido = cronometro.Elapsed;
 
-                DataSet objDS = new DataSet();
-                adaptadorBD.Fill(objDS, "Auditoria");
+                    MessageBox.Show($"Tiempo transcurrido: {tiempoTranscurrido.TotalSeconds} segundos");
+                    using (OleDbCommand comando = new OleDbCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("?", name);
+                        comando.Parameters.AddWithValue("?", DateTime.Today.ToString("dd/MM/yyyy"));
+                        comando.Parameters.AddWithValue("?", tiempoTranscurrido.TotalSeconds);
 
-                DataTable objTabla = objDS.Tables["Auditoria"];
-                DataRow nuevoRegistro = objTabla.NewRow();
-
-                nuevoRegistro["UserId"] = name;
-                nuevoRegistro["Fecha"] = DateTime.Now;
-                nuevoRegistro["Tiempo de uso"] = 10000;
-
-                objTabla.Rows.Add(nuevoRegistro);
-
-                OleDbCommandBuilder cb = new OleDbCommandBuilder(adaptadorBD);
-
-                adaptadorBD.Update(objDS, "Auditoria");
-
-                estadoConexion = "Exito";
-
+                        int filas = comando.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                }
             }
-            catch (Exception error)
-            {
-                estadoConexion = error.Message;
-            }
+
         }
-        public void ValidarUsuario(string name, string pass)
+        public bool ValidarUsuario(string name, string pass)
         {
+            bool flag = false;
             try
             {
                 comandoBD = new OleDbCommand();
@@ -100,16 +105,21 @@ namespace prySuppi_IEFI
                         if (lectorBD[1].ToString() == name && lectorBD[2].ToString() == pass)
                         {
                             InsertarAuditoria(name);
+                            flag = true;
                         }
                     }
                 }
+                
 
             }
             catch (Exception error)
             {
-
-                estadoConexion = error.Message;
+                MessageBox.Show("Error" + error);
+                flag = false;
             }
+
+            return flag;
         }
+       
     }
 }

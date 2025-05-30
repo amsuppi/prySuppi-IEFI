@@ -12,30 +12,24 @@ namespace prySuppi_IEFI
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+        string user;
+        clsUsuario clsUsuario = new clsUsuario();
+        public frmPrincipal(string user)
         {
             InitializeComponent();
-
+            this.user = user;
+            
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
+            tssUser.Text = "User: " + user;
+            tssFecha.Text = "Fecha: " + DateTime.Today.ToString("dd/MM/yyyy");
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void frmPrincipal_FormClosed(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
-        {
-
+            clsUsuario.InsertarAuditoria(user);
         }
     }
 }
