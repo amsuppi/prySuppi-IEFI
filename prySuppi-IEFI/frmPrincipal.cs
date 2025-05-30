@@ -12,24 +12,24 @@ namespace prySuppi_IEFI
 {
     public partial class frmPrincipal : Form
     {
-        string user;
+        string userId;
         clsUsuario clsUsuario = new clsUsuario();
         public frmPrincipal(string user)
         {
             InitializeComponent();
-            this.user = user;
+            this.userId = user;
             
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            tssUser.Text = "User: " + user;
+            tssUser.Text = "User: " + userId;
             tssFecha.Text = "Fecha: " + DateTime.Today.ToString("dd/MM/yyyy");
         }
 
-        private void frmPrincipal_FormClosed(object sender, EventArgs e)
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            clsUsuario.InsertarAuditoria(user);
+            clsUsuario.InsertarAuditoria(userId);
         }
     }
 }

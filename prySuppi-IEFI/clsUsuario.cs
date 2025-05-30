@@ -28,6 +28,9 @@ namespace prySuppi_IEFI
 
         string connectionString;
 
+        DateTime inicio;
+        DateTime fin;
+
         public clsUsuario()
         {
             try
@@ -51,7 +54,8 @@ namespace prySuppi_IEFI
 
         public void ConteoDeTiempo()
         {
-            cronometro.Restart();
+            inicio = DateTime.Now;
+            MessageBox.Show("Cronómetro iniciado.");
         }
 
         public void InsertarAuditoria(string name)
@@ -65,15 +69,15 @@ namespace prySuppi_IEFI
 
                     string query = "INSERT INTO Auditoria (User_id, Fecha, Tiempo_de_uso) VALUES (?, ?, ?)";
 
-                    cronometro.Stop();
-                    TimeSpan tiempoTranscurrido = cronometro.Elapsed;
+                    fin = DateTime.Now;
+                    int tiempoTranscurrido = (int)cronometro.Elapsed.TotalSeconds;
 
-                    MessageBox.Show($"Tiempo transcurrido: {tiempoTranscurrido.TotalSeconds} segundos");
+                    MessageBox.Show($"Tiempo transcurrido: {tiempoTranscurrido.ToString()} segundos");
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
                         comando.Parameters.AddWithValue("?", name);
                         comando.Parameters.AddWithValue("?", DateTime.Today.ToString("dd/MM/yyyy"));
-                        comando.Parameters.AddWithValue("?", tiempoTranscurrido.TotalSeconds);
+                        comando.Parameters.AddWithValue("?", tiempoTranscurrido);
 
                         int filas = comando.ExecuteNonQuery();
                     }
@@ -104,7 +108,6 @@ namespace prySuppi_IEFI
                     {
                         if (lectorBD[1].ToString() == name && lectorBD[2].ToString() == pass)
                         {
-                            InsertarAuditoria(name);
                             flag = true;
                         }
                     }
