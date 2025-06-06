@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace prySuppi_IEFI
 {
-    public partial class frmCrud : Form
+    public partial class frmUsuario : Form
     {
-        public frmCrud()
+        public frmUsuario()
         {
             InitializeComponent();
+        }
+
+        private void frmCrud_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace prySuppi_IEFI
 {
-    partial class frmCrud
+    partial class frmUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmUsuario
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmCrud";
+            this.ClientSize = new System.Drawing.Size(524, 330);
+            this.Name = "frmUsuario";
+            this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.frmCrud_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
