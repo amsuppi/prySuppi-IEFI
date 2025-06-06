@@ -37,10 +37,9 @@
             // optDetalle
             // 
             this.optDetalle.AutoSize = true;
-            this.optDetalle.Location = new System.Drawing.Point(20, 20);
-            this.optDetalle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.optDetalle.Location = new System.Drawing.Point(13, 13);
             this.optDetalle.Name = "optDetalle";
-            this.optDetalle.Size = new System.Drawing.Size(84, 24);
+            this.optDetalle.Size = new System.Drawing.Size(58, 17);
             this.optDetalle.TabIndex = 0;
             this.optDetalle.TabStop = true;
             this.optDetalle.Text = "Detalle";
@@ -49,36 +48,34 @@
             // optResumen
             // 
             this.optResumen.AutoSize = true;
-            this.optResumen.Location = new System.Drawing.Point(174, 20);
-            this.optResumen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.optResumen.Location = new System.Drawing.Point(116, 13);
             this.optResumen.Name = "optResumen";
-            this.optResumen.Size = new System.Drawing.Size(103, 24);
+            this.optResumen.Size = new System.Drawing.Size(70, 17);
             this.optResumen.TabIndex = 1;
             this.optResumen.TabStop = true;
             this.optResumen.Text = "Resumen";
             this.optResumen.UseVisualStyleBackColor = true;
+            this.optResumen.CheckedChanged += new System.EventHandler(this.optResumen_CheckedChanged);
             // 
             // dgvAuditoria
             // 
             this.dgvAuditoria.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuditoria.Location = new System.Drawing.Point(20, 57);
-            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvAuditoria.Location = new System.Drawing.Point(13, 37);
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.RowHeadersWidth = 62;
-            this.dgvAuditoria.Size = new System.Drawing.Size(562, 231);
+            this.dgvAuditoria.Size = new System.Drawing.Size(375, 150);
             this.dgvAuditoria.TabIndex = 2;
             // 
             // frmAuditoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(600, 314);
+            this.ClientSize = new System.Drawing.Size(400, 204);
             this.Controls.Add(this.dgvAuditoria);
             this.Controls.Add(this.optResumen);
             this.Controls.Add(this.optDetalle);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAuditoria";
             this.Text = "Auditoria";
             this.Load += new System.EventHandler(this.frmAuditoria_Load);
