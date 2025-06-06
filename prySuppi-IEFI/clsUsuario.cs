@@ -24,8 +24,6 @@ namespace prySuppi_IEFI
         string rutaArchivo= @"../../UsuarioDatabase/Usuarios.accdb";
         public string estadoConexion;
 
-        private Stopwatch cronometro = new Stopwatch();
-
         string connectionString;
 
         DateTime inicio;
@@ -55,7 +53,6 @@ namespace prySuppi_IEFI
         public void ConteoDeTiempo()
         {
             inicio = DateTime.Now;
-            MessageBox.Show("Cronómetro iniciado.");
         }
 
         public void InsertarAuditoria(string name)
@@ -69,15 +66,22 @@ namespace prySuppi_IEFI
 
                     string query = "INSERT INTO Auditoria (User_id, Fecha, Tiempo_de_uso) VALUES (?, ?, ?)";
 
-                    fin = DateTime.Now;
-                    int tiempoTranscurrido = (int)cronometro.Elapsed.TotalSeconds;
 
-                    MessageBox.Show($"Tiempo transcurrido: {tiempoTranscurrido.ToString()} segundos");
+                    fin = DateTime.Now;
+                    TimeSpan tiempoTranscurrido = this.fin - this.inicio;
+
+              
+
+                    string formato = string.Format("{0:D2}:{1:D2}:{2:D2}",
+                         tiempoTranscurrido.Hours,
+                         tiempoTranscurrido.Minutes,
+                         tiempoTranscurrido.Seconds);
+
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
                         comando.Parameters.AddWithValue("?", name);
                         comando.Parameters.AddWithValue("?", DateTime.Today.ToString("dd/MM/yyyy"));
-                        comando.Parameters.AddWithValue("?", tiempoTranscurrido);
+                        comando.Parameters.AddWithValue("?", formato);
 
                         int filas = comando.ExecuteNonQuery();
                     }

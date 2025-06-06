@@ -23,6 +23,7 @@ namespace prySuppi_IEFI
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+
             tssUser.Text = "User: " + userId;
             tssFecha.Text = "Fecha: " + DateTime.Today.ToString("dd/MM/yyyy");
         }
@@ -30,6 +31,12 @@ namespace prySuppi_IEFI
         private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
             clsUsuario.InsertarAuditoria(userId);
+        }
+
+        private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAuditoria frmAuditoria = new frmAuditoria(userId);
+            frmAuditoria.Show();
         }
     }
 }

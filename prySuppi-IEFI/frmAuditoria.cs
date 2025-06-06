@@ -12,9 +12,19 @@ namespace prySuppi_IEFI
 {
     public partial class frmAuditoria : Form
     {
-        public frmAuditoria()
+        string userId;
+        public frmAuditoria(string user)
         {
             InitializeComponent();
+            this.userId = user;
+        }
+
+        private void frmAuditoria_Load(object sender, EventArgs e)
+        {
+            optDetalle.Checked = true;
+            clsBuscar buscar = new clsBuscar(optDetalle, optResumen);
+
+            buscar.setearDatosEnDataGrid(userId, dgvAuditoria);
         }
     }
 }
