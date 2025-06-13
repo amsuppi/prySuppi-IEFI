@@ -38,5 +38,10 @@ namespace prySuppi_IEFI
             frmAuditoria frmAuditoria = new frmAuditoria(userId);
             frmAuditoria.Show();
         }
+
+        private void administracionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,7 +40,7 @@
             this.lblUser.AutoSize = true;
             this.lblUser.Location = new System.Drawing.Point(21, 24);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(29, 13);
+            this.lblUser.Size = new System.Drawing.Size(36, 16);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "User";
             // 
@@ -49,7 +49,7 @@
             this.lblPass.AutoSize = true;
             this.lblPass.Location = new System.Drawing.Point(21, 76);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(30, 13);
+            this.lblPass.Size = new System.Drawing.Size(38, 16);
             this.lblPass.TabIndex = 1;
             this.lblPass.Text = "Pass";
             // 
@@ -57,7 +57,7 @@
             // 
             this.txtUser.Location = new System.Drawing.Point(24, 40);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(188, 20);
+            this.txtUser.Size = new System.Drawing.Size(188, 22);
             this.txtUser.TabIndex = 2;
             // 
             // txtPass
@@ -65,7 +65,7 @@
             this.txtPass.Location = new System.Drawing.Point(24, 105);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(188, 20);
+            this.txtPass.Size = new System.Drawing.Size(188, 22);
             this.txtPass.TabIndex = 3;
             // 
             // btnLogin
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(238, 199);
+            this.ClientSize = new System.Drawing.Size(238, 200);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);

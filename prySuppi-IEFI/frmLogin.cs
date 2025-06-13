@@ -21,7 +21,7 @@ namespace prySuppi_IEFI
         private void frmLogin_Load(object sender, EventArgs e)
         {
             
-            lblPass.Text = clsUsuario.estadoConexion;
+            lblPass.Text = clsUsuario.EstadoDeConeccion();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace prySuppi_IEFI
                 frmPrincipal.Show();
 
                 clsUsuario.ConteoDeTiempo();
-                lblPass.Text = clsUsuario.estadoConexion;
+                lblPass.Text = clsUsuario.EstadoDeConeccion();
             } else
             {
                 MessageBox.Show("Error: Alguno de los datos son incorrectos");

@@ -22,9 +22,25 @@ namespace prySuppi_IEFI
         private void frmAuditoria_Load(object sender, EventArgs e)
         {
             optDetalle.Checked = true;
+            Validation();
+
+        }
+
+        private void Validation()
+        {
             clsBuscar buscar = new clsBuscar(optDetalle, optResumen);
 
             buscar.setearDatosEnDataGrid(userId, dgvAuditoria);
+        }
+
+        private void optDetalle_CheckedChanged(object sender, EventArgs e)
+        {
+            Validation();
+        }
+
+        private void optResumen_CheckedChanged(object sender, EventArgs e)
+        {
+            Validation();
         }
     }
 }
