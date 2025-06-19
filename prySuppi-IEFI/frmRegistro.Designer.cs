@@ -42,6 +42,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.gbUsuario = new System.Windows.Forms.GroupBox();
+            this.cmbGrupo = new System.Windows.Forms.ComboBox();
+            this.lblGrupo = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.dgvUsuariosRegistrados = new System.Windows.Forms.DataGridView();
             this.lbUsuarioRegstrados = new System.Windows.Forms.Label();
-            this.lblGrupo = new System.Windows.Forms.Label();
-            this.cmbGrupo = new System.Windows.Forms.ComboBox();
             this.gbDatosPersonales.SuspendLayout();
             this.gbUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosRegistrados)).BeginInit();
@@ -192,6 +192,23 @@
             this.gbUsuario.Text = "Usuario";
             this.gbUsuario.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cmbGrupo
+            // 
+            this.cmbGrupo.FormattingEnabled = true;
+            this.cmbGrupo.Location = new System.Drawing.Point(23, 121);
+            this.cmbGrupo.Name = "cmbGrupo";
+            this.cmbGrupo.Size = new System.Drawing.Size(534, 24);
+            this.cmbGrupo.TabIndex = 17;
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.Location = new System.Drawing.Point(20, 102);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(44, 16);
+            this.lblGrupo.TabIndex = 18;
+            this.lblGrupo.Text = "Grupo";
+            // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(641, 56);
@@ -254,23 +271,6 @@
             this.lbUsuarioRegstrados.Size = new System.Drawing.Size(138, 16);
             this.lbUsuarioRegstrados.TabIndex = 3;
             this.lbUsuarioRegstrados.Text = "Usuarios Registrados";
-            // 
-            // lblGrupo
-            // 
-            this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(20, 89);
-            this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(44, 16);
-            this.lblGrupo.TabIndex = 18;
-            this.lblGrupo.Text = "Grupo";
-            // 
-            // cmbGrupo
-            // 
-            this.cmbGrupo.FormattingEnabled = true;
-            this.cmbGrupo.Location = new System.Drawing.Point(23, 108);
-            this.cmbGrupo.Name = "cmbGrupo";
-            this.cmbGrupo.Size = new System.Drawing.Size(534, 24);
-            this.cmbGrupo.TabIndex = 17;
             // 
             // frmRegistro
             // 

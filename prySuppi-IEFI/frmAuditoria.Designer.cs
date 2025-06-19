@@ -38,7 +38,7 @@
             // 
             this.optDetalle.AutoSize = true;
             this.optDetalle.Location = new System.Drawing.Point(18, 16);
-            this.optDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.optDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.optDetalle.Name = "optDetalle";
             this.optDetalle.Size = new System.Drawing.Size(71, 20);
             this.optDetalle.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.optResumen.AutoSize = true;
             this.optResumen.Location = new System.Drawing.Point(155, 16);
-            this.optResumen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.optResumen.Margin = new System.Windows.Forms.Padding(4);
             this.optResumen.Name = "optResumen";
             this.optResumen.Size = new System.Drawing.Size(86, 20);
             this.optResumen.TabIndex = 1;
@@ -65,11 +65,12 @@
             this.dgvAuditoria.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuditoria.Location = new System.Drawing.Point(18, 46);
-            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.RowHeadersWidth = 62;
             this.dgvAuditoria.Size = new System.Drawing.Size(500, 185);
             this.dgvAuditoria.TabIndex = 2;
+            this.dgvAuditoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuditoria_CellContentClick);
             // 
             // frmAuditoria
             // 
@@ -80,7 +81,7 @@
             this.Controls.Add(this.dgvAuditoria);
             this.Controls.Add(this.optResumen);
             this.Controls.Add(this.optDetalle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAuditoria";
             this.Text = "Auditoria";
             this.Load += new System.EventHandler(this.frmAuditoria_Load);

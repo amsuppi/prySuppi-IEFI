@@ -12,6 +12,8 @@ namespace prySuppi_IEFI
     internal class clsRegistro
     {
 
+        //Quedaria validar si el usuario existe o no, para no poder crearlo de vuelta y modificaciones de diseño
+
         clsConexion conexionDatabase = new clsConexion();
         public DataGridView dgvUsuariosRegistrados;
 
@@ -39,7 +41,7 @@ namespace prySuppi_IEFI
 
                         int filas = comando.ExecuteNonQuery();
                         agregarUsuario(usuario, contraseña, grupo);
-                        MessageBox.Show("Persona agregado correctamente");
+                        BuscarRegistro(dgvUsuariosRegistrados);
                     }
                 }
                 catch (Exception ex)
@@ -107,6 +109,57 @@ namespace prySuppi_IEFI
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al modificar registro: " + ex.Message);
+                }
+            }
+        }
+
+        public void ModificarUsuario(string usuario, string contraseña, string grupo)
+        {
+            using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    string query = "UPDATE Registro SET Usuario = ?, Contraseña = ?, Grupo = ? WHERE Usuario = ?";
+
+                    using (OleDbCommand comando = new OleDbCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("?", usuario);
+                        comando.Parameters.AddWithValue("?", contraseña);
+                        comando.Parameters.AddWithValue("?", grupo);
+
+                        comando.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al modificar registro: " + ex.Message);
+                }
+            }
+        }
+
+        public void EliminarUsuario(string usuario)
+        {
+            using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    string query = "DELETE FROM Usuarios WHERE Usuario = ?";
+
+                    using (OleDbCommand comando = new OleDbCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("?", usuario);
+
+                        int filas = comando.ExecuteNonQuery();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar registro: " + ex.Message);
                 }
             }
         }

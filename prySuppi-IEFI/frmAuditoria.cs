@@ -42,5 +42,10 @@ namespace prySuppi_IEFI
         {
             Validation();
         }
+
+        private void dgvAuditoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

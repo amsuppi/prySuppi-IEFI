@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace prySuppi_IEFI
 {
@@ -33,18 +35,39 @@ namespace prySuppi_IEFI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string apelido = txtApellido.Text;
-            string emal = txtMail.Text;
-            string nacimiento = dtpNacimiento.Value.ToString("dd/MM/yyyy");
-            string usuario = txtUsuario.Text;
-            string contraseña = txtContraseña.Text;
-            string sexo = cmbSexo.SelectedItem.ToString();
-            string grupo = cmbGrupo.SelectedItem.ToString();
-            string dni = txtDni.Text;
+            if (validacionCampos())
+            {
+                string nombre = txtNombre.Text.Trim();
+                string apellido = txtApellido.Text.Trim();
+                string email = txtMail.Text.Trim();
+                string nacimiento = dtpNacimiento.Value.ToString("dd/MM/yyyy");
+                string usuario = txtUsuario.Text.Trim();
+                string contraseña = txtContraseña.Text.Trim();
+                string dni = txtDni.Text.Trim();
+                string sexo = cmbSexo.SelectedItem.ToString();
+                string grupo = cmbGrupo.SelectedItem.ToString();
 
-            registro.agregarRegistro(nombre, apelido, emal, sexo, nacimiento, usuario, contraseña, grupo, dni);
+                registro.agregarRegistro(nombre, apellido, email, sexo, nacimiento, usuario, contraseña, grupo, dni);
+            }
+            else
+            {
+                MessageBox.Show("Tenés que llenar todos los campos", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+        private bool validacionCampos()
+        {
+            return
+                !string.IsNullOrWhiteSpace(txtNombre.Text) &&
+                !string.IsNullOrWhiteSpace(txtApellido.Text) &&
+                !string.IsNullOrWhiteSpace(txtMail.Text) &&
+                !string.IsNullOrWhiteSpace(txtUsuario.Text) &&
+                !string.IsNullOrWhiteSpace(txtContraseña.Text) &&
+                !string.IsNullOrWhiteSpace(txtDni.Text) &&
+                cmbSexo.SelectedIndex >= 0 &&
+                cmbGrupo.SelectedIndex >= 0;
+        }
+
 
         private void frmRegistro_Load(object sender, EventArgs e)
         {
@@ -76,7 +99,11 @@ namespace prySuppi_IEFI
 
             if (e.ColumnIndex == 9)
             {
-                registro.ModificarRegistro(nombre,apellido,email,sexo,nacimiento,usuario,contraseña,grupo, dni);
+                if (MessageBox.Show("¿Está seguro de que desea editar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    registro.ModificarRegistro(nombre, apellido, email, sexo, nacimiento, usuario, contraseña, grupo, dni);
+                    registro.ModificarUsuario(usuario, contraseña, grupo);
+                }
 
             }
             else if (e.ColumnIndex == 10)
@@ -84,6 +111,7 @@ namespace prySuppi_IEFI
                 if (MessageBox.Show("¿Está seguro de que desea eliminar este registro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     registro.EliminarRegistro(dni);
+                    registro.EliminarUsuario(usuario);
                     registro.BuscarRegistro(dgvUsuariosRegistrados);
                 }
             }

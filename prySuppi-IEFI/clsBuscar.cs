@@ -28,7 +28,6 @@ namespace prySuppi_IEFI
             dgvAudtioria.Rows.Clear();
             dgvAudtioria.Columns.Clear();
 
-            dgvAudtioria.Columns.Add("Id", "Id");
             dgvAudtioria.Columns.Add("Fecha", "Fecha");
             dgvAudtioria.Columns.Add("User_id", "User Id");
             dgvAudtioria.Columns.Add("Tiempo_de_uso", "Tipo de uso");
@@ -71,8 +70,6 @@ namespace prySuppi_IEFI
                                     string fecha = reader["Fecha"].ToString();
                                     string userId = reader["User_id"].ToString();
                                     int tiempoDeUso = Convert.ToInt32(reader["Tiempo_de_uso"]);
-
-                                    Console.WriteLine($"Fecha: {fecha}, User_id: {userId}, Tiempo: {tiempoDeUso}");
 
                                     dgvAudtioria.Rows.Add(fecha, userId, tiempoDeUso);
                                 }
