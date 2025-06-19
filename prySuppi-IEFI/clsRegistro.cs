@@ -13,8 +13,9 @@ namespace prySuppi_IEFI
     {
 
         clsConexion conexionDatabase = new clsConexion();
+        public DataGridView dgvUsuariosRegistrados;
 
-        public void agregarRegistro(string nombre, string apelido, string emal, string sexo, string nacimiento, string usuario, string contraseña)
+        public void agregarRegistro(string nombre, string apelido, string emal, string sexo, string nacimiento, string usuario, string contraseña, string grupo, string dni)
         {
             using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
             {
@@ -22,7 +23,7 @@ namespace prySuppi_IEFI
                 {
                     conexion.Open();
 
-                    string query = "INSERT INTO Registro (Nombre, Apellido, Nacimiento, Sexo, Usuario, Contraseña, Mail) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    string query = "INSERT INTO Registro (Nombre, Apellido, Nacimiento, Sexo, Usuario, Contraseña, Mail, Grupo, Dni) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
@@ -33,6 +34,37 @@ namespace prySuppi_IEFI
                         comando.Parameters.AddWithValue("?", usuario);
                         comando.Parameters.AddWithValue("?", contraseña);
                         comando.Parameters.AddWithValue("?", emal);
+                        comando.Parameters.AddWithValue("?", grupo);
+                        comando.Parameters.AddWithValue("?", dni);
+
+                        int filas = comando.ExecuteNonQuery();
+                        agregarUsuario(usuario, contraseña, grupo);
+                        MessageBox.Show("Persona agregado correctamente");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void agregarUsuario(string usuario, string contraseña, string grupo)
+        {
+            using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    string query = "INSERT INTO Usuarios (Usuario, Contraseña, Grupo) VALUES (?, ?, ?)";
+
+                    using (OleDbCommand comando = new OleDbCommand(query, conexion))
+                    {
+                        comando.Parameters.AddWithValue("?", usuario);
+                        comando.Parameters.AddWithValue("?", contraseña);
+                        comando.Parameters.AddWithValue("?", grupo);
 
                         int filas = comando.ExecuteNonQuery();
                         MessageBox.Show("Persona agregado correctamente");
@@ -46,7 +78,7 @@ namespace prySuppi_IEFI
 
         }
 
-        public void modificarRegistro(int Codigo, string Nombre, string Precio, int Stock, string Descripcion, string Categorias)
+        public void ModificarRegistro(string nombre, string apellido, string email, string sexo, string nacimiento, string usuario, string contraseña, string grupo, string dni)
         {
             using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
             {
@@ -54,29 +86,31 @@ namespace prySuppi_IEFI
                 {
                     conexion.Open();
 
-                    string query = "UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Stock = ?, Categorias = ? WHERE Codigo = ?";
+                    string query = "UPDATE Registro SET Nombre = ?, Apellido = ?, Nacimiento = ?, Sexo = ?, Usuario = ?, Contraseña = ?, Mail = ?, Grupo = ? WHERE Dni = ?";
 
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
-                        comando.Parameters.AddWithValue("?", Nombre);
-                        comando.Parameters.AddWithValue("?", Descripcion);
-                        comando.Parameters.AddWithValue("?", Precio);
-                        comando.Parameters.AddWithValue("?", Stock);
-                        comando.Parameters.AddWithValue("?", Categorias);
-                        comando.Parameters.AddWithValue("?", Codigo); // El Código va al final porque está en el WHERE
+                        comando.Parameters.AddWithValue("?", nombre);
+                        comando.Parameters.AddWithValue("?", apellido);
+                        comando.Parameters.AddWithValue("?", nacimiento);
+                        comando.Parameters.AddWithValue("?", sexo);
+                        comando.Parameters.AddWithValue("?", usuario);
+                        comando.Parameters.AddWithValue("?", contraseña);
+                        comando.Parameters.AddWithValue("?", email);
+                        comando.Parameters.AddWithValue("?", grupo);
+                        comando.Parameters.AddWithValue("?", dni);
 
-                        int filas = comando.ExecuteNonQuery();
-                        MessageBox.Show("Producto modificado correctamente");
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Registro modificado correctamente");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al conectar o modificar en la base de datos: " + ex.Message);
+                    MessageBox.Show("Error al modificar registro: " + ex.Message);
                 }
             }
         }
-
-        public void eliminarRegistro(int Codigo)
+        public void EliminarRegistro(string dni)
         {
             using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
             {
@@ -84,86 +118,101 @@ namespace prySuppi_IEFI
                 {
                     conexion.Open();
 
-                    string query = "DELETE FROM Productos WHERE Codigo = ?";
+                    string query = "DELETE FROM Registro WHERE Dni = ?";
 
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
-                        comando.Parameters.AddWithValue("?", Codigo);
+                        comando.Parameters.AddWithValue("?", dni);
 
                         int filas = comando.ExecuteNonQuery();
 
                         if (filas > 0)
-                        {
-                            MessageBox.Show("Producto eliminado correctamente");
-                        }
+                            MessageBox.Show("Registro eliminado correctamente");
                         else
-                        {
-                            MessageBox.Show("No se encontró el producto con el código especificado");
-                        }
+                            MessageBox.Show("No se encontró el registro con el DNI especificado");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al eliminar el producto: " + ex.Message);
+                    MessageBox.Show("Error al eliminar registro: " + ex.Message);
                 }
             }
         }
 
-
-        public void BuscarProducto(DataGridView dgvUsuariosRegistrados)
+        public OleDbDataReader ObtenerRegistrosReader()
         {
+            OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString);
+
+            try
+            {
+                conexion.Open();
+
+                string query = "SELECT Nombre, Apellido, Mail, Sexo, Nacimiento, Usuario, Contraseña, Grupo, Dni FROM Registro";
+
+                OleDbCommand comando = new OleDbCommand(query, conexion);
+
+                return comando.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener registros: " + ex.Message);
+                return null;
+            }
+        }
+
+
+        public void BuscarRegistro(DataGridView dgvUsuariosRegistrados)
+        {
+            dgvUsuariosRegistrados.AllowUserToAddRows = false;
+ 
             dgvUsuariosRegistrados.Rows.Clear();
             dgvUsuariosRegistrados.Columns.Clear();
 
-            using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
+            // Agregar columnas de datos
+            dgvUsuariosRegistrados.Columns.Add("Nombre", "Nombre");
+            dgvUsuariosRegistrados.Columns.Add("Apellido", "Apellido");
+            dgvUsuariosRegistrados.Columns.Add("Email", "Email");
+            dgvUsuariosRegistrados.Columns.Add("Sexo", "Sexo");
+            dgvUsuariosRegistrados.Columns.Add("Nacimiento", "Nacimiento");
+            dgvUsuariosRegistrados.Columns.Add("Usuario", "Usuario");
+            dgvUsuariosRegistrados.Columns.Add("Contraseña", "Contraseña");
+            dgvUsuariosRegistrados.Columns.Add("Grupo", "Grupo");
+            dgvUsuariosRegistrados.Columns.Add("DNI", "Dni");
+
+            // Agregar columna de botón Editar
+            DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
+            btnEditar.Name = "btnEditar";
+            btnEditar.HeaderText = "Editar";
+            btnEditar.Text = "Editar";
+            btnEditar.UseColumnTextForButtonValue = true;
+            dgvUsuariosRegistrados.Columns.Add(btnEditar);
+
+            // Agregar columna de botón Eliminar
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.HeaderText = "Eliminar";
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseColumnTextForButtonValue = true;
+            dgvUsuariosRegistrados.Columns.Add(btnEliminar);
+
+            using (OleDbDataReader reader = ObtenerRegistrosReader())
             {
-                try
+                if (reader != null)
                 {
-
-                    DataGridViewButtonColumn btnEditar = new DataGridViewButtonColumn();
-                    btnEditar.Name = "btnEditar";
-                    btnEditar.HeaderText = "Editar";
-                    btnEditar.Text = "Editar";
-                    btnEditar.UseColumnTextForButtonValue = true;
-                    dgvUsuariosRegistrados.Columns.Add(btnEditar);
-
-                    DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
-                    btnEliminar.Name = "btnEliminar";
-                    btnEliminar.HeaderText = "Eliminar";
-                    btnEliminar.Text = "Eliminar";
-                    btnEliminar.UseColumnTextForButtonValue = true;
-                    dgvUsuariosRegistrados.Columns.Add(btnEliminar);
-
-                    conexion.Open();
-
-                    string query = "SELECT Fecha, User_id, Tiempo_de_uso FROM Auditoria";
-
-                    using (OleDbCommand comando = new OleDbCommand(query, conexion))
+                    while (reader.Read())
                     {
-
-
-                        using (OleDbDataReader reader = comando.ExecuteReader())
-                        {
-                            dgvUsuariosRegistrados.Rows.Clear();
-
-                            if (reader.HasRows)
-                            {
-                                while (reader.Read())
-                                {
-
-                                    dgvUsuariosRegistrados.Rows.Add(reader["Nombre"], reader["Precio"], reader["Stock"], reader["Categoria"]);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se encontraron registros para el usuario 'admin'.");
-                            }
-                        }
+                        dgvUsuariosRegistrados.Rows.Add(
+                            reader["Nombre"],
+                            reader["Apellido"],
+                            reader["Mail"],
+                            reader["Sexo"],
+                            reader["Nacimiento"],
+                            reader["Usuario"],
+                            reader["Contraseña"],
+                            reader["Grupo"],
+                            reader["DNI"]
+                        );
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
                 }
             }
         }

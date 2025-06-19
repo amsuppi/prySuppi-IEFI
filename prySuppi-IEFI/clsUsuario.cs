@@ -17,6 +17,8 @@ namespace prySuppi_IEFI
     {
 
         clsConexion conexionDatabase = new clsConexion();
+        public string usuario { get; set; }
+        public string grupoUsuario { get; set; }
 
 
         public void ConteoDeTiempo()
@@ -78,6 +80,8 @@ namespace prySuppi_IEFI
                         if (conexionDatabase.lectorBD[1].ToString() == name && conexionDatabase.lectorBD[2].ToString() == pass)
                         {
                             flag = true;
+                            grupoUsuario = conexionDatabase.lectorBD[3].ToString();
+                            usuario = conexionDatabase.lectorBD[1].ToString();
                         }
                     }
                 }

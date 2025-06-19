@@ -28,7 +28,7 @@ namespace prySuppi_IEFI
         {
             if (clsUsuario.ValidarUsuario(txtUser.Text, txtPass.Text))
             {
-                frmPrincipal frmPrincipal = new frmPrincipal(txtUser.Text);
+                frmPrincipal frmPrincipal = new frmPrincipal(clsUsuario.usuario, clsUsuario.grupoUsuario);
                 frmPrincipal.Show();
 
                 clsUsuario.ConteoDeTiempo();

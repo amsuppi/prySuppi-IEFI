@@ -48,12 +48,6 @@
             this.lblContraseña = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.dgvUsuariosRegistrados = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_nacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbUsuarioRegstrados = new System.Windows.Forms.Label();
             this.lblGrupo = new System.Windows.Forms.Label();
             this.cmbGrupo = new System.Windows.Forms.ComboBox();
@@ -78,7 +72,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtMail);
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
-            this.gbDatosPersonales.Size = new System.Drawing.Size(831, 231);
+            this.gbDatosPersonales.Size = new System.Drawing.Size(1195, 231);
             this.gbDatosPersonales.TabIndex = 0;
             this.gbDatosPersonales.TabStop = false;
             this.gbDatosPersonales.Text = "Datos Personale";
@@ -87,7 +81,7 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(443, 167);
+            this.lblDni.Location = new System.Drawing.Point(638, 167);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(27, 16);
             this.lblDni.TabIndex = 16;
@@ -95,16 +89,16 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(446, 186);
+            this.txtDni.Location = new System.Drawing.Point(641, 186);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(366, 22);
+            this.txtDni.Size = new System.Drawing.Size(534, 22);
             this.txtDni.TabIndex = 15;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(446, 51);
+            this.txtApellido.Location = new System.Drawing.Point(641, 51);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(366, 22);
+            this.txtApellido.Size = new System.Drawing.Size(534, 22);
             this.txtApellido.TabIndex = 14;
             // 
             // lblMail
@@ -119,7 +113,7 @@
             // lbApellido
             // 
             this.lbApellido.AutoSize = true;
-            this.lbApellido.Location = new System.Drawing.Point(443, 32);
+            this.lbApellido.Location = new System.Drawing.Point(638, 32);
             this.lbApellido.Name = "lbApellido";
             this.lbApellido.Size = new System.Drawing.Size(57, 16);
             this.lbApellido.TabIndex = 12;
@@ -137,7 +131,7 @@
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(443, 95);
+            this.lblSexo.Location = new System.Drawing.Point(638, 95);
             this.lblSexo.Name = "lblSexo";
             this.lblSexo.Size = new System.Drawing.Size(38, 16);
             this.lblSexo.TabIndex = 9;
@@ -155,30 +149,30 @@
             // cmbSexo
             // 
             this.cmbSexo.FormattingEnabled = true;
-            this.cmbSexo.Location = new System.Drawing.Point(446, 116);
+            this.cmbSexo.Location = new System.Drawing.Point(641, 116);
             this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(366, 24);
+            this.cmbSexo.Size = new System.Drawing.Size(534, 24);
             this.cmbSexo.TabIndex = 6;
             // 
             // dtpNacimiento
             // 
             this.dtpNacimiento.Location = new System.Drawing.Point(23, 114);
             this.dtpNacimiento.Name = "dtpNacimiento";
-            this.dtpNacimiento.Size = new System.Drawing.Size(366, 22);
+            this.dtpNacimiento.Size = new System.Drawing.Size(534, 22);
             this.dtpNacimiento.TabIndex = 5;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(23, 51);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(366, 22);
+            this.txtNombre.Size = new System.Drawing.Size(534, 22);
             this.txtNombre.TabIndex = 2;
             // 
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(23, 186);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(366, 22);
+            this.txtMail.Size = new System.Drawing.Size(534, 22);
             this.txtMail.TabIndex = 1;
             // 
             // gbUsuario
@@ -192,7 +186,7 @@
             this.gbUsuario.Controls.Add(this.txtUsuario);
             this.gbUsuario.Location = new System.Drawing.Point(12, 254);
             this.gbUsuario.Name = "gbUsuario";
-            this.gbUsuario.Size = new System.Drawing.Size(831, 151);
+            this.gbUsuario.Size = new System.Drawing.Size(1195, 163);
             this.gbUsuario.TabIndex = 1;
             this.gbUsuario.TabStop = false;
             this.gbUsuario.Text = "Usuario";
@@ -200,14 +194,14 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(446, 56);
+            this.txtContraseña.Location = new System.Drawing.Point(641, 56);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(366, 22);
+            this.txtContraseña.Size = new System.Drawing.Size(534, 22);
             this.txtContraseña.TabIndex = 12;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(737, 109);
+            this.btnAgregar.Location = new System.Drawing.Point(1100, 122);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 11;
@@ -227,7 +221,7 @@
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(443, 37);
+            this.lblContraseña.Location = new System.Drawing.Point(638, 37);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(76, 16);
             this.lblContraseña.TabIndex = 8;
@@ -237,67 +231,25 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(23, 56);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(366, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(534, 22);
             this.txtUsuario.TabIndex = 4;
             // 
             // dgvUsuariosRegistrados
             // 
             this.dgvUsuariosRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsuariosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuariosRegistrados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombre,
-            this.apellido,
-            this.fecha_nacimiento,
-            this.sexo,
-            this.usuario,
-            this.acciones});
-            this.dgvUsuariosRegistrados.Location = new System.Drawing.Point(12, 443);
+            this.dgvUsuariosRegistrados.Location = new System.Drawing.Point(12, 495);
             this.dgvUsuariosRegistrados.Name = "dgvUsuariosRegistrados";
             this.dgvUsuariosRegistrados.RowHeadersWidth = 51;
             this.dgvUsuariosRegistrados.RowTemplate.Height = 24;
-            this.dgvUsuariosRegistrados.Size = new System.Drawing.Size(831, 196);
+            this.dgvUsuariosRegistrados.Size = new System.Drawing.Size(1195, 196);
             this.dgvUsuariosRegistrados.TabIndex = 2;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apelido";
-            this.apellido.MinimumWidth = 6;
-            this.apellido.Name = "apellido";
-            // 
-            // fecha_nacimiento
-            // 
-            this.fecha_nacimiento.HeaderText = "Fecha de Nacimiento";
-            this.fecha_nacimiento.MinimumWidth = 6;
-            this.fecha_nacimiento.Name = "fecha_nacimiento";
-            // 
-            // sexo
-            // 
-            this.sexo.HeaderText = "Sexo";
-            this.sexo.MinimumWidth = 6;
-            this.sexo.Name = "sexo";
-            // 
-            // usuario
-            // 
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.MinimumWidth = 6;
-            this.usuario.Name = "usuario";
-            // 
-            // acciones
-            // 
-            this.acciones.HeaderText = "Acciones";
-            this.acciones.MinimumWidth = 6;
-            this.acciones.Name = "acciones";
+            this.dgvUsuariosRegistrados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuariosRegistrados_CellContentClick);
             // 
             // lbUsuarioRegstrados
             // 
             this.lbUsuarioRegstrados.AutoSize = true;
-            this.lbUsuarioRegstrados.Location = new System.Drawing.Point(20, 408);
+            this.lbUsuarioRegstrados.Location = new System.Drawing.Point(12, 448);
             this.lbUsuarioRegstrados.Name = "lbUsuarioRegstrados";
             this.lbUsuarioRegstrados.Size = new System.Drawing.Size(138, 16);
             this.lbUsuarioRegstrados.TabIndex = 3;
@@ -317,20 +269,21 @@
             this.cmbGrupo.FormattingEnabled = true;
             this.cmbGrupo.Location = new System.Drawing.Point(23, 108);
             this.cmbGrupo.Name = "cmbGrupo";
-            this.cmbGrupo.Size = new System.Drawing.Size(366, 24);
+            this.cmbGrupo.Size = new System.Drawing.Size(534, 24);
             this.cmbGrupo.TabIndex = 17;
             // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 651);
+            this.ClientSize = new System.Drawing.Size(1219, 703);
             this.Controls.Add(this.lbUsuarioRegstrados);
             this.Controls.Add(this.dgvUsuariosRegistrados);
             this.Controls.Add(this.gbUsuario);
             this.Controls.Add(this.gbDatosPersonales);
             this.Name = "frmRegistro";
             this.Text = "Resgistro";
+            this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.gbDatosPersonales.ResumeLayout(false);
             this.gbDatosPersonales.PerformLayout();
             this.gbUsuario.ResumeLayout(false);
@@ -359,12 +312,6 @@
         private System.Windows.Forms.DataGridView dgvUsuariosRegistrados;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lbUsuarioRegstrados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_nacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acciones;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtContraseña;

@@ -13,18 +13,20 @@ namespace prySuppi_IEFI
     public partial class frmPrincipal : Form
     {
         string userId;
+        string gurpo;
         clsUsuario clsUsuario = new clsUsuario();
-        public frmPrincipal(string user)
+        public frmPrincipal(string usuario, string gurpo)
         {
             InitializeComponent();
-            this.userId = user;
-            
+            this.userId = usuario;
+            this.gurpo = gurpo;
+
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
 
-            if (userId == "admin")
+            if (gurpo == "admin")
             {
                 usuariosToolStripMenuItem.Visible = true;
             }
