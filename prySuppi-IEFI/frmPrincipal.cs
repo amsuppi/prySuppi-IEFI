@@ -24,6 +24,15 @@ namespace prySuppi_IEFI
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
 
+            if (userId == "admin")
+            {
+                usuariosToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                usuariosToolStripMenuItem.Visible = false;
+            }
+
             tssUser.Text = "User: " + userId;
             tssFecha.Text = "Fecha: " + DateTime.Today.ToString("dd/MM/yyyy");
         }
@@ -42,6 +51,12 @@ namespace prySuppi_IEFI
         private void administracionToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistro frmRegistro = new frmRegistro();
+            frmRegistro.Show();
         }
     }
 }
