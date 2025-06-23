@@ -30,9 +30,8 @@ namespace prySuppi_IEFI
             return conexionDatabase.estadoConexion;
         }
 
-        public void InsertarAuditoria(string name)
+        public void InsertarAuditoria(string name, int tiempoDeUso)
         {
-
             using (OleDbConnection conexion = new OleDbConnection(conexionDatabase.connectionString))
             {
                 try
@@ -41,12 +40,12 @@ namespace prySuppi_IEFI
 
                     string query = "INSERT INTO Auditoria (User_id, Fecha, Tiempo_de_uso) VALUES (?, ?, ?)";
 
-
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
                         comando.Parameters.AddWithValue("?", name);
                         comando.Parameters.AddWithValue("?", DateTime.Today.ToString("dd/MM/yyyy"));
-                        comando.Parameters.AddWithValue("?", 1000);
+ 
+                        comando.Parameters.AddWithValue("?", tiempoDeUso);
 
                         int filas = comando.ExecuteNonQuery();
                     }
@@ -56,7 +55,6 @@ namespace prySuppi_IEFI
                     Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
                 }
             }
-
         }
         public bool ValidarUsuario(string name, string pass)
         {

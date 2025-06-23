@@ -75,14 +75,14 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // auditoriaToolStripMenuItem
             // 
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
-            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             this.auditoriaToolStripMenuItem.Click += new System.EventHandler(this.auditoriaToolStripMenuItem_Click);
             // 
@@ -160,7 +160,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrincipal";
             this.Text = "Principal";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
