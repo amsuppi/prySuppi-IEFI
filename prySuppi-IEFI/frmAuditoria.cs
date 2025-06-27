@@ -25,6 +25,9 @@ namespace prySuppi_IEFI
             optDetalle.Checked = true;
             Validation();
 
+            string rutaArchivo2 = @"../../Logo/LOGO_IES.ico";
+            this.Icon = new Icon(rutaArchivo2);
+
         }
 
 

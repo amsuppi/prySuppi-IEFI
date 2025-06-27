@@ -70,6 +70,8 @@
             this.gbDatosPersonales.Controls.Add(this.dtpNacimiento);
             this.gbDatosPersonales.Controls.Add(this.txtNombre);
             this.gbDatosPersonales.Controls.Add(this.txtMail);
+            this.gbDatosPersonales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatosPersonales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
             this.gbDatosPersonales.Size = new System.Drawing.Size(1195, 231);
@@ -81,98 +83,118 @@
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(638, 167);
+            this.lblDni.Location = new System.Drawing.Point(638, 163);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(27, 16);
+            this.lblDni.Size = new System.Drawing.Size(35, 20);
             this.lblDni.TabIndex = 16;
             this.lblDni.Text = "Dni";
             // 
             // txtDni
             // 
+            this.txtDni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.txtDni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDni.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtDni.Location = new System.Drawing.Point(641, 186);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(534, 22);
+            this.txtDni.Size = new System.Drawing.Size(534, 27);
             this.txtDni.TabIndex = 15;
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtApellido.Location = new System.Drawing.Point(641, 51);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(534, 22);
+            this.txtApellido.Size = new System.Drawing.Size(534, 27);
             this.txtApellido.TabIndex = 14;
             // 
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(20, 167);
+            this.lblMail.Location = new System.Drawing.Point(20, 163);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(32, 16);
+            this.lblMail.Size = new System.Drawing.Size(40, 20);
             this.lblMail.TabIndex = 13;
             this.lblMail.Text = "Mail";
             // 
             // lbApellido
             // 
             this.lbApellido.AutoSize = true;
-            this.lbApellido.Location = new System.Drawing.Point(638, 32);
+            this.lbApellido.Location = new System.Drawing.Point(638, 23);
             this.lbApellido.Name = "lbApellido";
-            this.lbApellido.Size = new System.Drawing.Size(57, 16);
+            this.lbApellido.Size = new System.Drawing.Size(68, 20);
             this.lbApellido.TabIndex = 12;
             this.lbApellido.Text = "Apellido";
             // 
             // lblNacimiento
             // 
             this.lblNacimiento.AutoSize = true;
-            this.lblNacimiento.Location = new System.Drawing.Point(20, 95);
+            this.lblNacimiento.Location = new System.Drawing.Point(20, 85);
             this.lblNacimiento.Name = "lblNacimiento";
-            this.lblNacimiento.Size = new System.Drawing.Size(132, 16);
+            this.lblNacimiento.Size = new System.Drawing.Size(164, 20);
             this.lblNacimiento.TabIndex = 11;
             this.lblNacimiento.Text = "Fecha de nacimiento";
             // 
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(638, 95);
+            this.lblSexo.Location = new System.Drawing.Point(638, 85);
             this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(38, 16);
+            this.lblSexo.Size = new System.Drawing.Size(46, 20);
             this.lblSexo.TabIndex = 9;
             this.lblSexo.Text = "Sexo";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(20, 32);
+            this.lblNombre.Location = new System.Drawing.Point(20, 23);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(56, 16);
+            this.lblNombre.Size = new System.Drawing.Size(68, 20);
             this.lblNombre.TabIndex = 7;
             this.lblNombre.Text = "Nombre";
             // 
             // cmbSexo
             // 
+            this.cmbSexo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.cmbSexo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbSexo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.cmbSexo.FormattingEnabled = true;
-            this.cmbSexo.Location = new System.Drawing.Point(641, 116);
+            this.cmbSexo.Location = new System.Drawing.Point(641, 113);
             this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(534, 24);
+            this.cmbSexo.Size = new System.Drawing.Size(534, 28);
             this.cmbSexo.TabIndex = 6;
             // 
             // dtpNacimiento
             // 
+            this.dtpNacimiento.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.dtpNacimiento.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.dtpNacimiento.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.dtpNacimiento.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.dtpNacimiento.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.dtpNacimiento.Location = new System.Drawing.Point(23, 114);
             this.dtpNacimiento.Name = "dtpNacimiento";
-            this.dtpNacimiento.Size = new System.Drawing.Size(534, 22);
+            this.dtpNacimiento.Size = new System.Drawing.Size(534, 27);
             this.dtpNacimiento.TabIndex = 5;
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtNombre.Location = new System.Drawing.Point(23, 51);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(534, 22);
+            this.txtNombre.Size = new System.Drawing.Size(534, 27);
             this.txtNombre.TabIndex = 2;
             // 
             // txtMail
             // 
+            this.txtMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMail.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtMail.Location = new System.Drawing.Point(23, 186);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(534, 22);
+            this.txtMail.Size = new System.Drawing.Size(534, 27);
             this.txtMail.TabIndex = 1;
             // 
             // gbUsuario
@@ -184,6 +206,8 @@
             this.gbUsuario.Controls.Add(this.lblUsuario);
             this.gbUsuario.Controls.Add(this.lblContraseña);
             this.gbUsuario.Controls.Add(this.txtUsuario);
+            this.gbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbUsuario.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.gbUsuario.Location = new System.Drawing.Point(12, 254);
             this.gbUsuario.Name = "gbUsuario";
             this.gbUsuario.Size = new System.Drawing.Size(1195, 163);
@@ -194,36 +218,46 @@
             // 
             // cmbGrupo
             // 
+            this.cmbGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.cmbGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.cmbGrupo.FormattingEnabled = true;
             this.cmbGrupo.Location = new System.Drawing.Point(23, 121);
             this.cmbGrupo.Name = "cmbGrupo";
-            this.cmbGrupo.Size = new System.Drawing.Size(534, 24);
+            this.cmbGrupo.Size = new System.Drawing.Size(534, 28);
             this.cmbGrupo.TabIndex = 17;
             // 
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(20, 102);
+            this.lblGrupo.Location = new System.Drawing.Point(20, 98);
             this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(44, 16);
+            this.lblGrupo.Size = new System.Drawing.Size(55, 20);
             this.lblGrupo.TabIndex = 18;
             this.lblGrupo.Text = "Grupo";
             // 
             // txtContraseña
             // 
+            this.txtContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContraseña.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtContraseña.Location = new System.Drawing.Point(641, 56);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(534, 22);
+            this.txtContraseña.Size = new System.Drawing.Size(534, 27);
             this.txtContraseña.TabIndex = 12;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(1100, 122);
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(180)))), ((int)(((byte)(248)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnAgregar.Location = new System.Drawing.Point(961, 102);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(214, 43);
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblUsuario
@@ -231,44 +265,54 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Location = new System.Drawing.Point(20, 30);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(54, 16);
+            this.lblUsuario.Size = new System.Drawing.Size(67, 20);
             this.lblUsuario.TabIndex = 10;
             this.lblUsuario.Text = "Usuario";
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(638, 37);
+            this.lblContraseña.Location = new System.Drawing.Point(638, 30);
             this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(76, 16);
+            this.lblContraseña.Size = new System.Drawing.Size(95, 20);
             this.lblContraseña.TabIndex = 8;
             this.lblContraseña.Text = "Contraseña";
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtUsuario.Location = new System.Drawing.Point(23, 56);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(534, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(534, 27);
             this.txtUsuario.TabIndex = 4;
             // 
             // dgvUsuariosRegistrados
             // 
+            this.dgvUsuariosRegistrados.AllowUserToResizeColumns = false;
+            this.dgvUsuariosRegistrados.AllowUserToResizeRows = false;
             this.dgvUsuariosRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsuariosRegistrados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvUsuariosRegistrados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.dgvUsuariosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuariosRegistrados.Location = new System.Drawing.Point(12, 495);
+            this.dgvUsuariosRegistrados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.dgvUsuariosRegistrados.Location = new System.Drawing.Point(12, 460);
             this.dgvUsuariosRegistrados.Name = "dgvUsuariosRegistrados";
             this.dgvUsuariosRegistrados.RowHeadersWidth = 51;
             this.dgvUsuariosRegistrados.RowTemplate.Height = 24;
-            this.dgvUsuariosRegistrados.Size = new System.Drawing.Size(1195, 196);
+            this.dgvUsuariosRegistrados.Size = new System.Drawing.Size(1195, 231);
             this.dgvUsuariosRegistrados.TabIndex = 2;
             this.dgvUsuariosRegistrados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuariosRegistrados_CellContentClick);
             // 
             // lbUsuarioRegstrados
             // 
             this.lbUsuarioRegstrados.AutoSize = true;
-            this.lbUsuarioRegstrados.Location = new System.Drawing.Point(12, 448);
+            this.lbUsuarioRegstrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsuarioRegstrados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbUsuarioRegstrados.Location = new System.Drawing.Point(12, 426);
             this.lbUsuarioRegstrados.Name = "lbUsuarioRegstrados";
-            this.lbUsuarioRegstrados.Size = new System.Drawing.Size(138, 16);
+            this.lbUsuarioRegstrados.Size = new System.Drawing.Size(217, 25);
             this.lbUsuarioRegstrados.TabIndex = 3;
             this.lbUsuarioRegstrados.Text = "Usuarios Registrados";
             // 
@@ -276,12 +320,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(1219, 703);
             this.Controls.Add(this.lbUsuarioRegstrados);
             this.Controls.Add(this.dgvUsuariosRegistrados);
             this.Controls.Add(this.gbUsuario);
             this.Controls.Add(this.gbDatosPersonales);
             this.Name = "frmRegistro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resgistro";
             this.Load += new System.EventHandler(this.frmRegistro_Load);
             this.gbDatosPersonales.ResumeLayout(false);

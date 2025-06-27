@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -217,7 +218,7 @@ namespace prySuppi_IEFI
         public void BuscarRegistro(DataGridView dgvUsuariosRegistrados)
         {
             dgvUsuariosRegistrados.AllowUserToAddRows = false;
- 
+
             dgvUsuariosRegistrados.Rows.Clear();
             dgvUsuariosRegistrados.Columns.Clear();
 
@@ -248,7 +249,9 @@ namespace prySuppi_IEFI
             btnEliminar.UseColumnTextForButtonValue = true;
             dgvUsuariosRegistrados.Columns.Add(btnEliminar);
 
-            using (OleDbDataReader reader = ObtenerRegistrosReader())
+            
+
+                using (OleDbDataReader reader = ObtenerRegistrosReader())
             {
                 if (reader != null)
                 {

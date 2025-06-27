@@ -42,9 +42,9 @@
             this.lblUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblUser.Location = new System.Drawing.Point(21, 45);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(56, 25);
+            this.lblUser.Size = new System.Drawing.Size(67, 20);
             this.lblUser.TabIndex = 0;
-            this.lblUser.Text = "User";
+            this.lblUser.Text = "Usuario";
             // 
             // lblPass
             // 
@@ -53,9 +53,9 @@
             this.lblPass.ForeColor = System.Drawing.Color.White;
             this.lblPass.Location = new System.Drawing.Point(21, 113);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(47, 20);
+            this.lblPass.Size = new System.Drawing.Size(95, 20);
             this.lblPass.TabIndex = 1;
-            this.lblPass.Text = "Pass";
+            this.lblPass.Text = "Contraseña";
             // 
             // txtUser
             // 
@@ -110,7 +110,8 @@
             this.Controls.Add(this.lblUser);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(180)))), ((int)(((byte)(248)))));
             this.Name = "frmLogin";
-            this.Text = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Iniciar Sesion";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

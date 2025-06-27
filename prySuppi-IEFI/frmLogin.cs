@@ -20,14 +20,15 @@ namespace prySuppi_IEFI
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            
+            string rutaArchivo2 = @"../../Logo/LOGO_IES.ico";
+            this.Icon = new Icon(rutaArchivo2);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (clsUsuario.ValidarUsuario(txtUser.Text, txtPass.Text))
             {
-                frmPrincipal frmPrincipal = new frmPrincipal(clsUsuario.usuario, clsUsuario.grupoUsuario);
+                frmPrincipal frmPrincipal = new frmPrincipal(clsUsuario.usuario, clsUsuario.grupoUsuario, this);
                 frmPrincipal.Show();
                 this.Hide();
 

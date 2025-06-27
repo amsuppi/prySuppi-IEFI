@@ -77,11 +77,18 @@ namespace prySuppi_IEFI
             cmbSexo.Items.Add("Masculino");
             cmbSexo.Items.Add("Otros");
 
+            string rutaArchivo2 = @"../../Logo/LOGO_IES.ico";
+            this.Icon = new Icon(rutaArchivo2);
+
             cmbGrupo.Items.Clear();
             cmbGrupo.Items.Add("admin");
             cmbGrupo.Items.Add("usuario");
 
+
+
             registro.BuscarRegistro(dgvUsuariosRegistrados);
+
+            dtpNacimiento.CalendarMonthBackground = Color.Black;
         }
 
         private void dgvUsuariosRegistrados_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -16,19 +16,38 @@ namespace prySuppi_IEFI
         string userId;
         string gurpo;
         clsUsuario clsUsuario = new clsUsuario();
+
+        frmAuditoria frmAuditoria;
+        frmRegistro frmRegistro;
+        frmLogin frmLogin;
         Stopwatch cronometro;
-        public frmPrincipal(string usuario, string gurpo)
+        public frmPrincipal(string usuario, string gurpo, frmLogin frmLogin)
         {
             InitializeComponent();
             this.userId = usuario;
             this.gurpo = gurpo;
             cronometro = new Stopwatch();
+            this.frmLogin = frmLogin;
 
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cronometro.Start();
+            string rutaArchivo = @"../../Logo/LOGO_IES.png";
+            string rutaArchivo2 = @"../../Logo/LOGO_IES.ico";
+            pbLogo.Image = Image.FromFile(rutaArchivo);
+            this.Icon = new Icon(rutaArchivo2);
+
+
+            pbLogo.Left = (this.ClientSize.Width - pbLogo.Width) / 2;
+            pbLogo.Top = (this.ClientSize.Height - pbLogo.Height) / 2;
+
+
+            ToolStripStatusLabel espacio = new ToolStripStatusLabel();
+            espacio.Spring = true;
+            sstItems.Items.Insert(1, espacio);
+
 
             if (gurpo == "admin")
             {
@@ -45,7 +64,7 @@ namespace prySuppi_IEFI
 
         private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAuditoria frmAuditoria = new frmAuditoria(userId);
+            frmAuditoria = new frmAuditoria(userId);
             frmAuditoria.Show();
         }
 
@@ -56,7 +75,7 @@ namespace prySuppi_IEFI
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistro frmRegistro = new frmRegistro();
+            frmRegistro = new frmRegistro();
             frmRegistro.Show();
         }
 
@@ -70,6 +89,19 @@ namespace prySuppi_IEFI
             // Guarda en base de datos usando tu clase
             clsUsuario usuario = new clsUsuario();
             usuario.InsertarAuditoria(userId, tiempoTranscurrido);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmLogin.Show();
+
+            frmRegistro?.Close();
+            frmAuditoria?.Close();
+            this.Close();
+
+            this.Hide();
+
+
         }
     }
 }
