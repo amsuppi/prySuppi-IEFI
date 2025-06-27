@@ -48,7 +48,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.Silver;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -63,17 +63,18 @@
             // 
             // tsmTareas
             // 
-            this.tsmTareas.ForeColor = System.Drawing.Color.White;
+            this.tsmTareas.ForeColor = System.Drawing.Color.Black;
             this.tsmTareas.Name = "tsmTareas";
             this.tsmTareas.Size = new System.Drawing.Size(71, 27);
             this.tsmTareas.Text = "Tareas";
             // 
             // administracionToolStripMenuItem
             // 
+            this.administracionToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.administracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem,
             this.auditoriaToolStripMenuItem});
-            this.administracionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.administracionToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.administracionToolStripMenuItem.Name = "administracionToolStripMenuItem";
             this.administracionToolStripMenuItem.Size = new System.Drawing.Size(138, 27);
             this.administracionToolStripMenuItem.Text = "Administracion";
@@ -82,14 +83,14 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // auditoriaToolStripMenuItem
             // 
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
-            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
             this.auditoriaToolStripMenuItem.Click += new System.EventHandler(this.auditoriaToolStripMenuItem_Click);
             // 
@@ -171,9 +172,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(180)))), ((int)(((byte)(248)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(898, 41);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 53);
+            this.button1.Size = new System.Drawing.Size(149, 43);
             this.button1.TabIndex = 6;
             this.button1.Text = "Cerrar Sesion";
             this.button1.UseVisualStyleBackColor = false;

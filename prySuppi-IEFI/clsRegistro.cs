@@ -122,20 +122,21 @@ namespace prySuppi_IEFI
                 {
                     conexion.Open();
 
-                    string query = "UPDATE Registro SET Usuario = ?, Contraseña = ?, Grupo = ? WHERE Usuario = ?";
+                    string query = "UPDATE Usuarios SET Usuario = ?, Contraseña = ?, Grupo = ? WHERE Usuario = ?";
 
                     using (OleDbCommand comando = new OleDbCommand(query, conexion))
                     {
                         comando.Parameters.AddWithValue("?", usuario);
-                        comando.Parameters.AddWithValue("?", contraseña);
+                        comando.Parameters.AddWithValue("?", contraseña.ToString());
                         comando.Parameters.AddWithValue("?", grupo);
+                        comando.Parameters.AddWithValue("?", usuario);
 
                         comando.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al modificar registro: " + ex.Message);
+                    MessageBox.Show("Error al modificar registro: " + ex);
                 }
             }
         }

@@ -42,8 +42,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.gbUsuario = new System.Windows.Forms.GroupBox();
-            this.cmbGrupo = new System.Windows.Forms.ComboBox();
-            this.lblGrupo = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -51,6 +49,8 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.dgvUsuariosRegistrados = new System.Windows.Forms.DataGridView();
             this.lbUsuarioRegstrados = new System.Windows.Forms.Label();
+            this.cmbGrupo = new System.Windows.Forms.ComboBox();
+            this.lblGrupo = new System.Windows.Forms.Label();
             this.gbDatosPersonales.SuspendLayout();
             this.gbUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosRegistrados)).BeginInit();
@@ -72,7 +72,7 @@
             this.gbDatosPersonales.Controls.Add(this.txtMail);
             this.gbDatosPersonales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosPersonales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gbDatosPersonales.Location = new System.Drawing.Point(12, 12);
+            this.gbDatosPersonales.Location = new System.Drawing.Point(17, 93);
             this.gbDatosPersonales.Name = "gbDatosPersonales";
             this.gbDatosPersonales.Size = new System.Drawing.Size(1195, 231);
             this.gbDatosPersonales.TabIndex = 0;
@@ -158,7 +158,7 @@
             // 
             this.cmbSexo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.cmbSexo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbSexo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.cmbSexo.ForeColor = System.Drawing.Color.White;
             this.cmbSexo.FormattingEnabled = true;
             this.cmbSexo.Location = new System.Drawing.Point(641, 113);
             this.cmbSexo.Name = "cmbSexo";
@@ -199,8 +199,6 @@
             // 
             // gbUsuario
             // 
-            this.gbUsuario.Controls.Add(this.cmbGrupo);
-            this.gbUsuario.Controls.Add(this.lblGrupo);
             this.gbUsuario.Controls.Add(this.txtContraseña);
             this.gbUsuario.Controls.Add(this.btnAgregar);
             this.gbUsuario.Controls.Add(this.lblUsuario);
@@ -208,33 +206,13 @@
             this.gbUsuario.Controls.Add(this.txtUsuario);
             this.gbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbUsuario.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.gbUsuario.Location = new System.Drawing.Point(12, 254);
+            this.gbUsuario.Location = new System.Drawing.Point(17, 345);
             this.gbUsuario.Name = "gbUsuario";
             this.gbUsuario.Size = new System.Drawing.Size(1195, 163);
             this.gbUsuario.TabIndex = 1;
             this.gbUsuario.TabStop = false;
             this.gbUsuario.Text = "Usuario";
             this.gbUsuario.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // cmbGrupo
-            // 
-            this.cmbGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
-            this.cmbGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbGrupo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
-            this.cmbGrupo.FormattingEnabled = true;
-            this.cmbGrupo.Location = new System.Drawing.Point(23, 121);
-            this.cmbGrupo.Name = "cmbGrupo";
-            this.cmbGrupo.Size = new System.Drawing.Size(534, 28);
-            this.cmbGrupo.TabIndex = 17;
-            // 
-            // lblGrupo
-            // 
-            this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(20, 98);
-            this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(55, 20);
-            this.lblGrupo.TabIndex = 18;
-            this.lblGrupo.Text = "Grupo";
             // 
             // txtContraseña
             // 
@@ -297,7 +275,7 @@
             this.dgvUsuariosRegistrados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
             this.dgvUsuariosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuariosRegistrados.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
-            this.dgvUsuariosRegistrados.Location = new System.Drawing.Point(12, 460);
+            this.dgvUsuariosRegistrados.Location = new System.Drawing.Point(12, 561);
             this.dgvUsuariosRegistrados.Name = "dgvUsuariosRegistrados";
             this.dgvUsuariosRegistrados.RowHeadersWidth = 51;
             this.dgvUsuariosRegistrados.RowTemplate.Height = 24;
@@ -310,18 +288,43 @@
             this.lbUsuarioRegstrados.AutoSize = true;
             this.lbUsuarioRegstrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuarioRegstrados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbUsuarioRegstrados.Location = new System.Drawing.Point(12, 426);
+            this.lbUsuarioRegstrados.Location = new System.Drawing.Point(12, 527);
             this.lbUsuarioRegstrados.Name = "lbUsuarioRegstrados";
             this.lbUsuarioRegstrados.Size = new System.Drawing.Size(217, 25);
             this.lbUsuarioRegstrados.TabIndex = 3;
             this.lbUsuarioRegstrados.Text = "Usuarios Registrados";
+            // 
+            // cmbGrupo
+            // 
+            this.cmbGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(52)))));
+            this.cmbGrupo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbGrupo.ForeColor = System.Drawing.Color.White;
+            this.cmbGrupo.FormattingEnabled = true;
+            this.cmbGrupo.Location = new System.Drawing.Point(17, 42);
+            this.cmbGrupo.Name = "cmbGrupo";
+            this.cmbGrupo.Size = new System.Drawing.Size(534, 24);
+            this.cmbGrupo.TabIndex = 19;
+            this.cmbGrupo.SelectedIndexChanged += new System.EventHandler(this.cmbGrupo_SelectedIndexChanged);
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblGrupo.Location = new System.Drawing.Point(14, 19);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(127, 16);
+            this.lblGrupo.TabIndex = 20;
+            this.lblGrupo.Text = "Selecciona el grupo";
+            this.lblGrupo.Click += new System.EventHandler(this.lblGrupo_Click);
             // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(1219, 703);
+            this.ClientSize = new System.Drawing.Size(1219, 804);
+            this.Controls.Add(this.cmbGrupo);
+            this.Controls.Add(this.lblGrupo);
             this.Controls.Add(this.lbUsuarioRegstrados);
             this.Controls.Add(this.dgvUsuariosRegistrados);
             this.Controls.Add(this.gbUsuario);

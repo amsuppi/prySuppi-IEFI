@@ -48,6 +48,7 @@ namespace prySuppi_IEFI
                 string grupo = cmbGrupo.SelectedItem.ToString();
 
                 registro.agregarRegistro(nombre, apellido, email, sexo, nacimiento, usuario, contraseña, grupo, dni);
+                Limpiar();
             }
             else
             {
@@ -55,10 +56,24 @@ namespace prySuppi_IEFI
             }
         }
 
+        private void Limpiar()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtMail.Clear();
+            dtpNacimiento.Value = DateTime.Now;
+            txtUsuario.Clear();
+            txtContraseña.Clear();
+            txtDni.Clear();
+        }
+
         private bool validacionCampos()
         {
-            return
-                !string.IsNullOrWhiteSpace(txtNombre.Text) &&
+
+            if (cmbGrupo.SelectedItem.ToString() == "usuario")
+                {
+
+                return !string.IsNullOrWhiteSpace(txtNombre.Text) &&
                 !string.IsNullOrWhiteSpace(txtApellido.Text) &&
                 !string.IsNullOrWhiteSpace(txtMail.Text) &&
                 !string.IsNullOrWhiteSpace(txtUsuario.Text) &&
@@ -66,6 +81,14 @@ namespace prySuppi_IEFI
                 !string.IsNullOrWhiteSpace(txtDni.Text) &&
                 cmbSexo.SelectedIndex >= 0 &&
                 cmbGrupo.SelectedIndex >= 0;
+
+            } else
+            {
+                return !string.IsNullOrWhiteSpace(txtUsuario.Text) &&
+                !string.IsNullOrWhiteSpace(txtContraseña.Text) &&
+                cmbGrupo.SelectedIndex >= 0;
+            }
+                
         }
 
 
@@ -76,6 +99,9 @@ namespace prySuppi_IEFI
             cmbSexo.Items.Add("Femenino");
             cmbSexo.Items.Add("Masculino");
             cmbSexo.Items.Add("Otros");
+            cmbSexo.SelectedItem = "Otros";
+            cmbGrupo.SelectedItem = "Otros";
+
 
             string rutaArchivo2 = @"../../Logo/LOGO_IES.ico";
             this.Icon = new Icon(rutaArchivo2);
@@ -83,12 +109,35 @@ namespace prySuppi_IEFI
             cmbGrupo.Items.Clear();
             cmbGrupo.Items.Add("admin");
             cmbGrupo.Items.Add("usuario");
-
-
+            cmbGrupo.SelectedItem = "usuario";
 
             registro.BuscarRegistro(dgvUsuariosRegistrados);
 
             dtpNacimiento.CalendarMonthBackground = Color.Black;
+            DisabledTextBoxes();
+        }
+
+        private void DisabledTextBoxes()
+        {
+            if(cmbGrupo.SelectedItem.ToString() != "admin")
+            {
+                txtNombre.Enabled = true;
+                txtApellido.Enabled = true;
+                txtMail.Enabled = true;
+                dtpNacimiento.Enabled = true;
+                txtDni.Enabled = true;
+                cmbSexo.Enabled = true;
+            }
+            else
+            {
+                txtNombre.Enabled = false;
+                txtApellido.Enabled = false;
+                txtMail.Enabled = false;
+                dtpNacimiento.Enabled = false;
+                txtDni.Enabled = false;
+                cmbSexo.Enabled = false;
+            }
+            
         }
 
         private void dgvUsuariosRegistrados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,6 +171,16 @@ namespace prySuppi_IEFI
                     registro.BuscarRegistro(dgvUsuariosRegistrados);
                 }
             }
+        }
+
+        private void lblGrupo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGrupo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisabledTextBoxes();
         }
     }
 }
